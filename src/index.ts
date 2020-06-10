@@ -12,11 +12,7 @@ reader.read();
 
 // Use enums instead of objects
 
-enum matchResults {
-  HomeWin = "H",
-  AwayWin = "A",
-  Draw = "D",
-}
+import { matchResults } from "./matchResult";
 
 let manUnitedWins = 0;
 
