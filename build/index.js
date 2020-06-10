@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var CsvFileReader_1 = require("./CsvFileReader");
-var reader = new CsvFileReader_1.CsvFileReader("football.csv");
+var MatchReader_1 = require("./MatchReader");
+var reader = new MatchReader_1.MatchReader("football.csv");
 reader.read();
 // Use an object to represent the outcomes of match.
 // const matchResults = {
@@ -10,19 +10,14 @@ reader.read();
 //   Draw: "D",
 // };
 // Use enums instead of objects
-var matchResults;
-(function (matchResults) {
-    matchResults["HomeWin"] = "H";
-    matchResults["AwayWin"] = "A";
-    matchResults["Draw"] = "D";
-})(matchResults || (matchResults = {}));
+var matchResult_1 = require("./matchResult");
 var manUnitedWins = 0;
 for (var _i = 0, _a = reader.data; _i < _a.length; _i++) {
     var match = _a[_i];
-    if (match[1] === "Man United" && match[5] === matchResults.HomeWin) {
+    if (match[1] === "Man United" && match[5] === matchResult_1.matchResults.HomeWin) {
         manUnitedWins++;
     }
-    else if (match[2] === "Man United" && match[5] === matchResults.AwayWin) {
+    else if (match[2] === "Man United" && match[5] === matchResult_1.matchResults.AwayWin) {
         manUnitedWins++;
     }
 }
