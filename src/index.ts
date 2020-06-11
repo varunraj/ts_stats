@@ -1,22 +1,15 @@
 import { MatchReader } from "./MatchReader";
-
-const reader = new MatchReader("football.csv");
-reader.read();
-
-// Use an object to represent the outcomes of match.
-// const matchResults = {
-//   HomeWin: "H",
-//   AwayWin: "A",
-//   Draw: "D",
-// };
-
-// Use enums instead of objects
-
+import { CsvFileReader } from "./CsvFileReader";
 import { matchResults } from "./matchResult";
+import { match } from "assert";
+
+const csvFileReader = new CsvFileReader("football.csv");
+const matchReader = new MatchReader(csvFileReader);
+matchReader.load();
 
 let manUnitedWins = 0;
 
-for (let match of reader.data) {
+for (let match of matchReader.matches) {
   if (match[1] === "Man United" && match[5] === matchResults.HomeWin) {
     manUnitedWins++;
   } else if (match[2] === "Man United" && match[5] === matchResults.AwayWin) {
