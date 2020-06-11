@@ -14,10 +14,7 @@ const summary = new Summary(
   new ConsoleReport()
 );
 
-const summaryHtml = new Summary(
-  new WinsAnalysis("Man United"),
-  new HtmlReports()
-);
+const summaryHtml = Summary.winsAnalysisWithHtmlReport("Man United");
 //
 summary.buildAndPrint(matchReader.matches);
 summaryHtml.buildAndPrint(matchReader.matches);
